@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,13 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl ('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)])
+  })
 
+  hide: boolean = false;
   register(){
     if(this.email == '')
     {

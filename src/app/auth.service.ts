@@ -20,10 +20,6 @@ export class AuthService {
       {
         this.router.navigate(['dashboard']);
       }
-      else
-      {
-        this.router.navigate(['/verify-email'])
-      }
     },err => {
       alert('Something went wrong');
       this.router.navigate(['/login']);
